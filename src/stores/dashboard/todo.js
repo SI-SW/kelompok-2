@@ -60,6 +60,7 @@ const d$todo = defineStore({
          category,
       }),
       g$list: ({ list }) => list,
+
    },
 });
 
