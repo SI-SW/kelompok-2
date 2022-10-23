@@ -37,9 +37,17 @@ const d$auth = defineStore({
     },
     async a$logout() {
       try {
-        delCookies('CERT');
+        delCookies("CERT");
       } catch ({ error, message }) {
         throw message ?? error;
+      }
+    },
+    async a$register(body) {
+      try {
+        await s$auth.register(body);
+      } catch (e) {
+        console.log("register error", e);
+        throw e;
       }
     },
   },
