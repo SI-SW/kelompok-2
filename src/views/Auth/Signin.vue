@@ -27,7 +27,6 @@
                   <form @submit.prevent="submitLogin">
                     <div class="mb-3">
                       <argon-input
-                        v-model="input.username"
                         type="email"
                         placeholder="Email"
                         name="email"
@@ -36,7 +35,6 @@
                     </div>
                     <div class="mb-3">
                       <argon-input
-                        v-model="input.password"
                         type="password"
                         placeholder="Password"
                         name="password"
@@ -52,7 +50,6 @@
                         color="success"
                         fullWidth
                         size="lg"
-                        type="submit"
                         >Sign in</argon-button
                       >
                     </div>
@@ -129,7 +126,7 @@ export default {
     async submitLogin() {
       try {
         await this.a$login({ ...this.input });
-        this.$router.replace({name: 'Default'});
+        this.$router.replace({ name: "Default" });
       } catch (e) {
         console.error(e);
       }
