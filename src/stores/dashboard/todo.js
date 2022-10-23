@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import * as s$todo from "@/service/dashboard/todo";
+import * as s$todo from "@/services/dashboard/todo";
 import { certCookies } from "@/plugins/cookies";
 
 const d$todo = defineStore({

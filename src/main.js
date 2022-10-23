@@ -5,7 +5,7 @@ import store from "./stores";
 import router from "./router";
 import "./assets/css/nucleo-icons.css";
 import "./assets/css/nucleo-svg.css";
-import ArgonDashboard from "./plugins/argon-dashboard";
+import ArgonDashboard from "../src/plugins/argon-dashboard";
 
 const appInstance = createApp(App);
 appInstance.use(createPinia());
