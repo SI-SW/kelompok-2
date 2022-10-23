@@ -4,39 +4,39 @@ import { mapState, mapActions } from "pinia";
 import d$todo from "@/stores/dashboard/todo";
 
 export default {
-   name: "ToDo",
-   components: {
-      ArgonButton,
-   },
-   computed: {
-      ...mapState(d$todo, ["g$list"]),
-   },
-   methods: {
-      ...mapActions(d$todo, ["a$list", "a$del"]),
-      async getList() {
-         try {
-            await this.a$list();
-         } catch (e) {
-            console.error("Methods getList error", e);
-         }
-      },
-      async deleteTodo(idTodo) {
-         try {
-            if (confirm("Do you want to delete this data?") == true) {
-               await this.a$del(idTodo);
-               alert("Delete Successfully");
-               this.$router.go(this.$router.currentRoute);
-            } else {
-               this.$router.go(this.$router.currentRoute);
-            }
-         } catch (error) {
-            console.error(" error", error);
-         }
-      },
-   },
-   async created() {
-      await this.getList();
-   },
+  name: "ToDo",
+  components: {
+    ArgonButton,
+  },
+  computed: {
+    ...mapState(d$todo, ["g$list"]),
+  },
+  methods: {
+    ...mapActions(d$todo, ["a$list", "a$del"]),
+    async getList() {
+      try {
+        await this.a$list();
+      } catch (e) {
+        console.error("Methods getList error", e);
+      }
+    },
+    async deleteTodo(idTodo) {
+      try {
+        if (confirm("Do you want to delete this data?") == true) {
+          await this.a$del(idTodo);
+          alert("Delete Successfully");
+          this.$router.go(this.$router.currentRoute);
+        } else {
+          this.$router.go(this.$router.currentRoute);
+        }
+      } catch (error) {
+        console.error(" error", error);
+      }
+    },
+  },
+  async created() {
+    await this.getList();
+  },
 };
 </script>
 
@@ -143,15 +143,13 @@ export default {
                     >Edit
                   </button>
                 </RouterLink> -->
-                <a
+                <button
+                  class="btn btn-brand text-danger text-gradient ms-lg-2"
                   href="javascript:;"
-                  class="text-secondary font-weight-bold text-xs ms-4"
-                  data-toggle="tooltip"
-                  data-original-title="Edit user"
-                  ><i
-                    class="ni ni-fat-remove text-warning text-lg opacity-10"
-                  ></i
-                ></a>
+                  @click.prevent="deleteTodo(item.id)"
+                >
+                  <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Delete
+                </button>
               </td>
             </tr>
           </tbody>
