@@ -17,7 +17,7 @@
             <div class="col-auto">
               <div class="avatar avatar-xl position-relative">
                 <img
-                  src="../assets/img/team-1.jpg"
+                  src="../../assets/img/team-1.jpg"
                   alt="profile_image"
                   class="shadow-sm w-100 border-radius-lg"
                 />
@@ -305,7 +305,7 @@ export default {
   name: "profile",
   data() {
     return {
-      showMenu: false
+      showMenu: false,
     };
   },
   components: { ProfileCard, ArgonInput, ArgonButton },
@@ -329,6 +329,6 @@ export default {
     this.$store.state.showFooter = true;
     this.$store.state.hideConfigButton = false;
     body.classList.remove("profile-overview");
-  }
+  },
 };
 </script>
