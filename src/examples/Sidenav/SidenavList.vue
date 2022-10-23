@@ -39,6 +39,17 @@
           </template>
         </sidenav-item>
       </li>
+      <li class="nav-item">
+        <sidenav-item
+          url="/dashboard/todo"
+          :class="getRoute() === 'todo' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'الفواتیر' : 'ToDo'"
+        >
+          <template v-slot:icon>
+            <i class="ni ni-bullet-list-67 text-warning text-sm opacity-10"></i>
+          </template>
+        </sidenav-item>
+      </li>
       <li class="mt-3 nav-item">
         <h6
           v-if="this.$store.state.isRTL"
@@ -88,6 +99,18 @@
           </template>
         </sidenav-item>
       </li>
+      <li class="nav-item">
+        <sidenav-item
+          url="/auth/signin"
+          :class="getRoute() === 'LogOut' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'اشتراك' : 'Log Out'"
+          @click="LogOut"
+        >
+          <template v-slot:icon>
+            <i class="ni ni-button-power text-warning text-sm opacity-10"></i>
+          </template>
+        </sidenav-item>
+      </li>
     </ul>
   </div>
   <div class="pt-3 mx-3 mt-3 sidenav-footer">
@@ -101,6 +124,8 @@
 <script>
 import SidenavItem from "./SidenavItem.vue";
 import SidenavCard from "./SidenavCard.vue";
+import {mapActions} from 'pinia'
+import d$auth from '@/stores/auth'
 
 export default {
   name: "SidenavList",
@@ -122,7 +147,16 @@ export default {
     getRoute() {
       const routeArr = this.$route.path.split("/");
       return routeArr[1];
-    }
+    },
+    ...mapActions(d$auth, ["a$logout"]),
+    async LogOut() {
+      try {
+        this.a$logout();
+        this.$router.replace({ name: "Signin" });
+      } catch (e) {
+        console.log(e);
+      }
+    },
   }
 };
 </script>
