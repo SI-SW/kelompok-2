@@ -26,6 +26,7 @@ export default {
                await this.a$del(idTodo);
                alert("Delete Successfully");
                this.$router.go(this.$router.currentRoute);
+               this.$router.replace({name: 'ToDo'});
             } else {
                this.$router.go(this.$router.currentRoute);
             }
