@@ -72,7 +72,7 @@ export default {
                <label class="form-label">Status</label>
                <select v-model="input.status" class="form-select">
                   <option value="" selected hidden disabled>Options</option>
-                  <template v-for="item in dropdown.status" :key="item">
+                  <template v-for="item in dropdown" :key="item">
                      <option :value="item">
                         {{ item }}
                      </option>
