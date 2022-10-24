@@ -59,13 +59,13 @@ export default {
             <div class="mb-3">
                <label class="form-label"
                   >Name
-                  <input v-model="input.name" type="text" placeholder="Name" name="name" size="lg" />
+                  <argon-input style="width:635px;" v-model="input.name" type="text" placeholder="Name" name="name" size="lg" />
                </label>
             </div>
             <div class="mb-3">
                <label class="form-label"
                   >Description
-                  <input v-model="input.description" type="text" placeholder="Description" name="description" size="lg" />
+                  <argon-input style="width:635px;" v-model="input.description" type="text" placeholder="Description" name="description" size="lg" />
                </label>
             </div>
             <div class="mb-3">
