@@ -131,18 +131,9 @@ export default {
                 }}</span>
               </td>
               <td class="align-middle">
-                <!-- <RouterLink :to="{ name: 'update', params: { id: item.id } }">
-                  <button
-                    class="btn btn-brand text-succes text-gradient ms-lg-2"
-                    href="javascript:;"
-                  >
-                    <i
-                      class="ni ni-settings-gear-65 text-success text-lg opacity-10"
-                      aria-hidden="true"
-                    ></i
-                    >Edit
-                  </button>
-                </RouterLink> -->
+
+                <RouterLink class="btn btn-brand ms-lg-3" :to="{ name: 'edit', params: { id: item.id } }"><i class="ni ni-settings text-dark text-sm opacity-10" aria-hidden="true"></i></RouterLink>
+                
                 <button
                   class="btn btn-brand text-danger text-gradient ms-lg-2"
                   href="javascript:;"

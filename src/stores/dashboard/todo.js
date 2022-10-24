@@ -52,6 +52,14 @@ const d$todo = defineStore({
             throw e;
          }
       },
+      async a$update(body, id) {
+         try {
+            await s$todo.edit(body, id);
+         } catch (e) {
+            console.error("update error", e);
+            throw e;
+         }
+      },
    },
    getters: {
       g$add: ({ name, description, category }) => ({
@@ -60,7 +68,9 @@ const d$todo = defineStore({
          category,
       }),
       g$list: ({ list }) => list,
-
+      g$detail: ({ list }) => {
+         return (id) => list.find((index) => index.id == id);
+      },
    },
 });
 
